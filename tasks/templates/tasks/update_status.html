@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button {
+        color: green;
+    }
+</style>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <p>Status</p>
+        <form action="" method="POST">
+            {% if task.status == 1 %}
+            <input type="radio" id="not_done" name="status" checked value="1">
+            <label for="not_done">Not Done</label><br>
+            <input type="radio" id="done" name="status" value="2">
+            <label for="done">Done</label><br>
+            {% else %}
+            <input type="radio" id="not_done" name="status" value="1">
+            <label for="not_done">Not Done</label><br>
+            <input type="radio" id="done" name="status" checked value="2">
+            <label for="done">Done</label><br>
+            {% endif %}
+            <button type="submit">Submit</button>
+        </form>
+</body>
+
+</html>
